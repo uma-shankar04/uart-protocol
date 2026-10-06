@@ -35,3 +35,28 @@ Each transmitted byte follows this format:
 ```text
 Idle  Start  Data Bits                         Stop
  1      0     D0 D1 D2 D3 D4 D5 D6 D7           1
+## Simulation Results
+
+### UART Transmitter (TX)
+
+The TX simulation shows the UART serial output for the transmitted 8-bit data.
+
+![UART TX Waveform](uart_tx_waveforms.png)
+
+### UART Receiver (RX)
+
+The RX simulation shows the received serial data being converted back into 8-bit parallel data.
+
+![UART RX Waveform](uart_rx_waveforms.png)
+
+## Files
+
+| File | Description |
+|---|---|
+| `uart_tx.v` | UART transmitter RTL |
+| `uart_rx.v` | UART receiver RTL |
+| `uart_tx_tb.v` | UART transmitter testbench |
+| `uart_rx_tb.v` | UART receiver testbench |
+| `uart_tx_waveforms.png` | TX simulation waveform |
+| `uart_rx_waveforms.png` | RX simulation waveform |
+| `README.md` | Project documentation |
