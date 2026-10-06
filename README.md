@@ -2,30 +2,36 @@
 
 ## Overview
 
-This project implements a UART (Universal Asynchronous Receiver/Transmitter) using Verilog HDL.
+This project implements a UART (Universal Asynchronous Receiver/Transmitter) protocol using Verilog HDL.
 
-The project includes both UART Transmitter (TX) and UART Receiver (RX) along with their respective testbenches and simulation waveforms.
+The design includes both:
+
+- UART Transmitter (TX)
+- UART Receiver (RX)
+- TX testbench
+- RX testbench
+- Simulation waveform screenshots
+
+The transmitter converts 8-bit parallel data into a serial UART data stream, while the receiver converts the serial UART data stream back into 8-bit parallel data.
+
+---
 
 ## UART Configuration
 
-- Data bits: 8
-- Parity: None
-- Stop bits: 1
-- Baud rate: 9600
-- Clock frequency: 100 MHz
-- Data transmission: LSB first
+| Parameter | Value |
+|---|---|
+| Data bits | 8 |
+| Parity | None |
+| Stop bits | 1 |
+| Baud rate | 9600 |
+| Clock frequency | 100 MHz |
+| Data format | 8-N-1 |
+| Data transmission | LSB first |
 
-## Project Structure
+### UART Frame
+
+Each transmitted byte follows this format:
 
 ```text
-uart-protocol/
-│
-├── README.md
-│
-├── uart_tx.v
-├── uart_tx_tb.v
-├── uart_tx_waveforms.png
-│
-├── uart_rx.v
-├── uart_rx_tb.v
-└── uart_rx_waveforms.png
+Idle  Start  Data Bits                         Stop
+ 1      0     D0 D1 D2 D3 D4 D5 D6 D7           1
